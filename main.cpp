@@ -3,33 +3,19 @@
 #include <conio.h>
 #include <string>
 #include <cmath>
-#include "Fonctions.h"
+#include "Fruits.h"
 
 
     int main() {
 
         const int WIDTH = 900;
         const int HEIGHT = 900;
-        int i = 900;
-        int j = 400;
         sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "tp fin de semestre");
 
         window.setVerticalSyncEnabled(true);
 //    window.setFramerateLimit(120);
-
-        sf::CircleShape cercle(50.f);
-        sf::CircleShape triangle(80, 3);
-        sf::RectangleShape rectangle;
-
-
-        cercle.setFillColor(sf::Color(100, 250, 50));
-        triangle.setFillColor(sf::Color(100, 250, 50));
-
-        triangle.setPosition(700, 400);
-        rectangle.setSize(sf::Vector2f(200, 100));
-        rectangle.setFillColor(sf::Color(100, 250, 50));
-        rectangle.setPosition(100, 200);
-
+        Fruits cercle = Fruits(450, 800, 40, 450, 400, false);
+        Fruits cercle2 = Fruits(400, 700, 60, 450, 400, false);
 
         while (window.isOpen()) {
             sf::Event event{};
@@ -40,12 +26,12 @@
             }
             window.clear(sf::Color(200, 90, 0));
 
-            cercle.setPosition(j, i);
-            i-=5;
-
-            window.draw(cercle);
-            window.draw(rectangle);
-            window.draw(triangle);
+            cercle.changeDeSensY();
+            cercle2.changeDeSensX();
+            cercle.bougerY();
+            cercle2.bougerX();
+            cercle.afficher(window);
+            cercle2.afficher(window);
 
             window.display();
 
