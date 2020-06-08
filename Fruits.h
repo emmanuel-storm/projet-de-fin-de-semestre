@@ -14,6 +14,8 @@
 
 class Fruits : sf::Drawable {
 private:
+    const float WIDTH = 1170;
+    const float HEIGHT = 1050;
     bool machin = false;
     int direction;
     float x;
@@ -26,11 +28,16 @@ public:
     void bougerY();
     void bougerX();
     void afficher(sf::RenderWindow &window);
+    void multiAffichage(sf::RenderWindow &window);
     void changeDeSensY();
     void changeDeSensX();
 
+    void afficher(sf::RenderWindow &window, sf::String fruit);
+    void multiAffichage(sf::RenderWindow &window, sf::String fruit);
+
 protected:
-        void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+
 };
 
 
